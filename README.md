@@ -9,7 +9,7 @@
 ```
 Social Media Addiction Analysis/
 ├── data/
-│   ├── students_social_media_addiction.csv   ← Placing dataset here
+│   ├── students_social_media_addiction.csv   ← Dataset
 │   ├── shap_background.csv                   ← Auto generated on first run
 │   └── predictions_log.csv                   ← Auto generated on each prediction
 ├── model/
