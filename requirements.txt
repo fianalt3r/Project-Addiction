@@ -11,3 +11,4 @@ joblib
 matplotlib
 pydantic
 python-multipart
+xgboost
