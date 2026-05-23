@@ -9,7 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import requests
 
-# ── Configuration ──────────────────────────────────────────────────────────
+# Configuration
 st.set_page_config(
     page_title="Social Media Addiction Analysis",
     page_icon="📱",
@@ -23,7 +23,7 @@ DATA_PATH = os.path.join(ROOT, "data", "students_social_media_addiction.csv")
 
 ADDICTION_COLORS = {"Low": "#2ecc71", "Moderate": "#f39c12", "High": "#e74c3c"}
 
-# Inject Premium Design Theme
+# Injecting Design Theme
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
@@ -98,10 +98,7 @@ page = st.sidebar.radio("Navigate", [
 st.sidebar.markdown('<hr style="border: 0; height: 1px; background: rgba(128,128,128,0.2); margin: 10px 0;">', unsafe_allow_html=True)
 st.sidebar.caption("Active features: 11 categories")
 
-
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 1: OVERVIEW
-# ══════════════════════════════════════════════════════════════════════════
 def page_overview():
     st.title("🏠 Overview")
     st.markdown("High level snapshot of the student study data and general addiction risk levels.")
@@ -167,9 +164,7 @@ def page_overview():
         st.dataframe(df.describe().round(2), use_container_width=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 2: SCREEN TIME ANALYSIS
-# ══════════════════════════════════════════════════════════════════════════
 def page_screen_time():
     st.title("📺 Screen Time Analysis")
     st.markdown("Details on how much time students spend on social media and what influences their habits.")
@@ -262,9 +257,7 @@ def page_screen_time():
         st.markdown("* **Explanation**: Highlights the geographical locations showing the highest average daily screen time in our dataset.")
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 3: PRODUCTIVITY AND CONCENTRATION
-# ══════════════════════════════════════════════════════════════════════════
 def page_productivity():
     st.title("📚 Productivity and Concentration")
     st.markdown("Analyzing how digital habits impact studies, sleep quality, and lifestyle harmony.")
@@ -367,9 +360,7 @@ def page_productivity():
         st.markdown("* **Explanation**: Average nightly sleep duration across academic groups in the dataset.")
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 4: MOOD AND SCREEN TIME
-# ══════════════════════════════════════════════════════════════════════════
 def page_mood():
     st.title("😊 Mood and Screen Time")
     st.markdown("Investigating the relationship between emotional wellbeing, screen time, and lifestyle factors.")
@@ -470,9 +461,7 @@ def page_mood():
         st.markdown("* **Explanation**: Compares variables side by side. Red blocks show positive links (like usage hours and conflicts), while blue blocks show negative links (like usage hours and sleep).")
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 5: MODEL PERFORMANCE
-# ══════════════════════════════════════════════════════════════════════════
 def page_model_performance():
     st.title("🤖 Model Performance")
     st.markdown("Evaluating classifier scores with proper cross validation and hyperparameter tuning.")
@@ -590,9 +579,8 @@ def page_model_performance():
         st.dataframe(pd.DataFrame(rows).T.round(3), use_container_width=True)
 
 
-# ══════════════════════════════════════════════════════════════════════════
+
 # PAGE 6: PREDICT MY RISK
-# ══════════════════════════════════════════════════════════════════════════
 def page_predict():
     st.title("🔮 Predict My Risk")
     st.markdown("Input your personal habits to calculate your estimated social media addiction risk.")
@@ -703,9 +691,7 @@ def page_predict():
             st.success("Low risk detected. Keep up the good habits, maintain regular sleep times, and share tips on healthy device habits with friends.")
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # PAGE 7: SHAP AND ETHICS
-# ══════════════════════════════════════════════════════════════════════════
 def page_shap_ethics():
     st.title("🧠 SHAP Insights and Digital Ethics")
     st.markdown("Understanding which features influence predictions overall, and exploring simulated habit changes.")
@@ -809,9 +795,7 @@ def page_shap_ethics():
         )
 
 
-# ══════════════════════════════════════════════════════════════════════════
 # ROUTER
-# ══════════════════════════════════════════════════════════════════════════
 if   page == "🏠 Overview":                          page_overview()
 elif page == "📺 Screen Time Analysis":              page_screen_time()
 elif page == "📚 Productivity and Concentration":     page_productivity()
