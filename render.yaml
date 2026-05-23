@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: addiction-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+
+  - type: web
+    name: addiction-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run src/frontend/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: API_URL
+        fromService:
+          type: web
+          name: addiction-api
+          envVarKey: RENDER_EXTERNAL_URL

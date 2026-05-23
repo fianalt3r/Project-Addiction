@@ -1,0 +1,12 @@
+Age,Gender,Academic_Level,Country,Avg_Daily_Usage_Hours,Most_Used_Platform,Affects_Academic_Performance,Sleep_Hours_Per_Night,Mental_Health_Score,Conflicts_Over_Social_Media,Relationship_Status,prediction,timestamp,prob_high,prob_low,prob_moderate
+20,Female,Undergraduate,USA,6.0,TikTok,Yes,5.0,5.0,4,Complicated,High,2026-05-24T03:19:22.178512,1.0,0.0,0.0
+22,Male,Undergraduate,India,5.0,YouTube,Yes,5.0,10.0,5,Complicated,High,2026-05-24T03:22:28.745627,0.6333333333333333,0.22,0.14666666666666667
+20,Female,Undergraduate,USA,6.0,TikTok,Yes,5.0,5.0,4,Complicated,High,2026-05-24T03:32:49.292221,0.9967198124359855,3.9382828696456434e-11,0.003280187524631636
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T03:39:14.573184,0.00034961327459703763,0.0002149732049390012,0.9994354135204639
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T04:03:29.118901,0.02918921783566475,0.9435796737670898,0.027231095358729362
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T04:04:55.891473,0.08,0.75,0.17
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T04:12:38.783815,0.02918921783566475,0.9435796737670898,0.027231095358729362
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T04:12:45.386205,0.0002146626217188295,0.9992961935473679,0.0004891438309131372
+20,Female,Graduate,Afghanistan,5.0,Facebook,Yes,7.0,6.0,1,Complicated,Moderate,2026-05-24T04:12:56.430661,0.08,0.75,0.17
+20,Female,Graduate,Afghanistan,12.0,Facebook,Yes,7.0,6.0,3,Complicated,Moderate,2026-05-24T04:13:37.969709,0.0,0.8032851239669421,0.19671487603305784
+22,Male,Undergraduate,India,12.0,Instagram,Yes,7.0,10.0,5,Complicated,High,2026-05-24T04:14:10.162934,0.2,0.37,0.43
