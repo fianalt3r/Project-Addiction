@@ -25,14 +25,14 @@ from sklearn.metrics import (
     classification_report, confusion_matrix,
 )
 
-# ── Paths ──────────────────────────────────────────────────────────────────
+# Paths 
 ROOT             = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH        = os.path.join(ROOT, "data", "students_social_media_addiction.csv")
 SHAP_BG_PATH     = os.path.join(ROOT, "data", "shap_background.csv")
 PRED_LOG_PATH    = os.path.join(ROOT, "data", "predictions_log.csv")
 MODEL_PATH       = os.path.join(ROOT, "model", "social_media_model.pkl")
 
-# ── Feature definitions ────────────────────────────────────────────────────
+# Feature definitions 
 NUMERICAL_COLS = [
     "Age",
     "Avg_Daily_Usage_Hours",
@@ -54,7 +54,7 @@ ALL_FEATURES = NUMERICAL_COLS + CATEGORICAL_COLS
 CLASSES      = ["Low", "Moderate", "High"]
 
 
-# ── Pydantic schemas ───────────────────────────────────────────────────────
+# Pydantic schemas 
 class UserInput(BaseModel):
     Age: int
     Gender: str
@@ -79,7 +79,7 @@ class PredictionOutput(BaseModel):
     feature_names: List[str]
 
 
-# ── Data loading & preparation ─────────────────────────────────────────────
+# Data loading & preparation
 def load_data():
     df = pd.read_csv(DATA_PATH)
     if "Student_ID" in df.columns:
@@ -95,7 +95,7 @@ def load_data():
     return df
 
 
-# ── Pipeline builder ───────────────────────────────────────────────────────
+# Pipeline builder 
 def build_pipeline(classifier):
     num_tf = Pipeline([
         ("imputer", SimpleImputer(strategy="median")),
@@ -118,7 +118,7 @@ def build_pipeline(classifier):
     ])
 
 
-# ── Training ───────────────────────────────────────────────────────────────
+# Training
 def train_model():
     print("📦 Loading data...")
     df = load_data()
@@ -207,7 +207,7 @@ def train_model():
         "classes":        CLASSES,
     }
 
-    # Save SHAP background data (100 random training samples)
+    # Saving SHAP background data (100 random training samples)
     bg = X_train.sample(min(100, len(X_train)), random_state=42)
     bg.to_csv(SHAP_BG_PATH, index=False)
 
@@ -221,7 +221,7 @@ def train_model():
     return rf_best, lr_best, xgb_best, metrics
 
 
-# ── SHAP helpers ───────────────────────────────────────────────────────────
+# SHAP helpers 
 def get_shap_for_input(pipeline, input_df, model_choice="Random Forest"):
     preprocessor = pipeline.named_steps["preprocessor"]
     classifier   = pipeline.named_steps["classifier"]
@@ -275,7 +275,7 @@ def get_global_shap(pipeline, X_test, model_choice="Random Forest"):
     return mean_abs.tolist(), ALL_FEATURES
 
 
-# ── Prediction logger ──────────────────────────────────────────────────────
+# Prediction logger
 def log_prediction(input_dict: dict, prediction: str, probabilities: dict):
     row = {**input_dict, "prediction": prediction, "timestamp": datetime.now().isoformat()}
     row.update({f"prob_{k.lower()}": v for k, v in probabilities.items()})
@@ -287,7 +287,7 @@ def log_prediction(input_dict: dict, prediction: str, probabilities: dict):
         df_row.to_csv(PRED_LOG_PATH, index=False)
 
 
-# ── Load or train on startup ───────────────────────────────────────────────
+# Load or train on startup
 if os.path.exists(MODEL_PATH):
     try:
         print("✅ Loading existing model...")
@@ -304,7 +304,7 @@ else:
     rf_pipeline, lr_pipeline, xgb_pipeline, metrics = train_model()
 
 
-# ── FastAPI app ────────────────────────────────────────────────────────────
+# FastAPI app
 app = FastAPI(
     title="Social Media Addiction Predictor",
     description="Predicts student addiction risk: Low / Moderate / High",
