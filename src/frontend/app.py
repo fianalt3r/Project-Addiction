@@ -17,7 +17,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-API_URL   = os.environ.get("API_URL", "http://localhost:8000")
+API_URL   = os.environ.get("API_URL", "https://project-addiction.onrender.com")
 ROOT      = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_PATH = os.path.join(ROOT, "data", "students_social_media_addiction.csv")
 
