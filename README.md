@@ -48,7 +48,7 @@ Place the CSV in `data/students_social_media_addiction.csv`
 # Install
 pip install -r requirements.txt
 
-# Terminal 1 — FastAPI backend (auto-trains model on first run)
+# Terminal 1 — FastAPI backend (auto trains model on first run)
 uvicorn src.backend.main:app --reload
 
 # Terminal 2 — Streamlit frontend
