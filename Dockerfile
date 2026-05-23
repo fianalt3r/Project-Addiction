@@ -2,21 +2,21 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install dependencies
+# For Installing dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project files
+# For Copying project files
 COPY . .
 
-# Create data and model directories
+# For Creating data and model directories
 RUN mkdir -p data model
 
-# Expose ports
+# For Exposing ports
 EXPOSE 8000 8501
 
-# Make start script executable
+# For Making start script executable
 RUN chmod +x start.sh
 
-# Run both services
+# For Running both services
 CMD ["bash", "start.sh"]
