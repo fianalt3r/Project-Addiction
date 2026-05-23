@@ -9,11 +9,11 @@
 ```
 Social Media Addiction Analysis/
 ├── data/
-│   ├── students_social_media_addiction.csv   ← Place dataset here
-│   ├── shap_background.csv                   ← Auto-generated on first run
-│   └── predictions_log.csv                   ← Auto-generated on each prediction
+│   ├── students_social_media_addiction.csv   ← Placing dataset here
+│   ├── shap_background.csv                   ← Auto generated on first run
+│   └── predictions_log.csv                   ← Auto generated on each prediction
 ├── model/
-│   └── social_media_model.pkl                ← Trained pipeline (auto-generated)
+│   └── social_media_model.pkl                ← Trained pipeline (auto generated)
 ├── notebook/
 │   └── notebook.ipynb                        ← EDA, training, evaluation
 ├── src/
