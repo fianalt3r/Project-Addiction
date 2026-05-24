@@ -12,3 +12,4 @@ matplotlib
 pydantic
 python-multipart
 xgboost
+statsmodels
